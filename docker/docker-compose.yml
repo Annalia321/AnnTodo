@@ -1,0 +1,24 @@
+# docker compose -f docker/docker-compose.yml up -d
+services:
+  anntodo:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: anntodo:latest
+    container_name: anntodo
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - anntodo-data:/app/data
+    environment:
+      TZ: Asia/Shanghai
+      # Uncomment to use PostgreSQL / MySQL instead of SQLite:
+      # ANNTODO_DATABASE_TYPE: postgres
+      # ANNTODO_DATABASE_HOST: db
+      # ANNTODO_DATABASE_NAME: anntodo
+      # ANNTODO_DATABASE_USER: anntodo
+      # ANNTODO_DATABASE_PASSWORD: change-me
+
+volumes:
+  anntodo-data:

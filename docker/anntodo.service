@@ -1,0 +1,27 @@
+# AnnTodo systemd unit example.
+# 1. Copy the binary and conf/ to /opt/anntodo
+# 2. useradd --system --home /opt/anntodo --shell /usr/sbin/nologin anntodo
+#    chown -R anntodo:anntodo /opt/anntodo
+# 3. cp anntodo.service /etc/systemd/system/ && systemctl daemon-reload
+# 4. systemctl enable --now anntodo
+[Unit]
+Description=AnnTodo self-hosted todo manager
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=anntodo
+Group=anntodo
+WorkingDirectory=/opt/anntodo
+ExecStart=/opt/anntodo/anntodo -c /opt/anntodo/conf/anntodo.ini run
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/opt/anntodo/data
+
+[Install]
+WantedBy=multi-user.target

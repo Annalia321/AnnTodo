@@ -1,0 +1,24 @@
+# Build output
+/anntodo
+/anntodo.exe
+*.exe~
+/dist/
+web/dist/
+web/node_modules/
+
+# Runtime data
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local requirement notes (not published)
+/docs/需求与设计.md
+/需求.md

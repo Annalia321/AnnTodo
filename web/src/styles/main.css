@@ -1,0 +1,65 @@
+:root {
+  --app-font: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+  --gap: 16px;
+}
+html.density-compact {
+  --gap: 10px;
+}
+html {
+  overflow-y: auto;
+}
+.v-application,
+.v-application [class*='text-'],
+.v-application input,
+.v-application textarea,
+.fc {
+  font-family: var(--app-font) !important;
+}
+.page {
+  padding: var(--gap);
+  max-width: 1800px;
+  margin: 0 auto;
+}
+.page-narrow {
+  padding: var(--gap);
+  max-width: 860px;
+  margin: 0 auto;
+}
+.page-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--gap);
+  min-height: 40px;
+}
+.page-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+.overdue {
+  color: rgb(var(--v-theme-error)) !important;
+}
+.muted {
+  color: rgba(var(--v-theme-on-surface), var(--v-medium-emphasis-opacity));
+}
+.ghost {
+  opacity: 0.4;
+}
+.sortable-chosen {
+  cursor: grabbing;
+}
+.swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex: 0 0 auto;
+}
+.swatch.selected {
+  border-color: rgb(var(--v-theme-on-surface));
+}
